@@ -1,3 +1,13 @@
+/*
+ * This script automates the creation of a weekly work draft in the Drafts app.
+ * It performs the following tasks:
+ * 1. Sets the title of the draft based on Monday's date in the current week.
+ * 2. Builds a "Todos" section by carrying over uncompleted tasks from the previous draft and incrementing their carryover count or adding a blank todo.
+ * 3. Builds an "Updates" section by optionally pulling events from a specified calendar. Otherwise, I use this for notes and brief project updates.
+ * 4. Unflags the previous week's Draft and archives it if configured to do so.
+ * Configuration parameters allow customization of the default calendar, tags applied to the draft, skipping calendar event selection, and archiving behavior.
+ */
+
 // Configuration Parameters
 const config = {
     defaultCalendarName: '', // Set your default calendar name here, if any. If blank, it will prompt for it
@@ -184,5 +194,6 @@ function main() {
     // Load the new draft in the editor
     editor.load(newDraft);
 }
+
 
 main();
